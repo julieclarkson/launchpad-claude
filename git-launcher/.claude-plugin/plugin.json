@@ -1,0 +1,37 @@
+{
+  "name": "git-launcher",
+  "displayName": "Git Launcher",
+  "version": "1.0.0",
+  "description": "AI agent plugin that reads your codebase and generates launch-ready GitHub assets — README, screenshots, architecture diagrams, social preview, and multi-platform launch posts. No API keys, no cloud, no cost.",
+  "author": {
+    "name": "Julie Clarkson",
+    "email": "julie@superfly.dev"
+  },
+  "homepage": "https://github.com/julieclarkson/git-launcher-claude",
+  "repository": "https://github.com/julieclarkson/git-launcher-claude",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "keywords": [
+    "github",
+    "launch",
+    "readme",
+    "screenshots",
+    "architecture",
+    "social-preview",
+    "developer-tools",
+    "launch-kit"
+  ],
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/check-commit.js"
+          }
+        ]
+      }
+    ]
+  }
+}
